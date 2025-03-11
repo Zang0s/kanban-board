@@ -1,0 +1,26 @@
+#column-1 {
+  background-color: #a7c7e7;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  margin: 10px 10px 0 0;
+  width: 300px;
+  height: 100%;
+}
+
+#column-2 {
+  background-color: #f8c291;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  margin: 10px 10px 0 0;
+  width: 300px;
+  height: 100%;
+}
+
+#column-3 {
+  background-color: #a3e4db;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  margin: 10px 10px 0 0;
+  width: 300px;
+  height: 100%;
+}

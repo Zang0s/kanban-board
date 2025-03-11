@@ -18,11 +18,11 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ onAddTask }) => {
   };
 
   return (
-    // formularz przykleja się do dołu kolumny prosze o pomoc
     <form
       onSubmit={handleSubmit}
       style={{
         padding: "8px",
+        margin: "0px",
         background: "#fff",
         borderRadius: "0 0 4px 4px",
         boxShadow: "0 1px 3px rgba(0,0,0,0.2)",

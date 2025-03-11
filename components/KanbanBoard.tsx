@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Column from "./Column";
+import "../src/styles/kanbanBoard.css";
 
 export type Task = {
   id: string;
@@ -159,6 +160,23 @@ export default function KanbanBoard() {
               column={column}
               tasks={tasks}
               onAddTask={(content: string) => addTask(column.id, content)}
+              onDelete={(taskId: string) => {
+                const newTasks = { ...data.tasks };
+                delete newTasks[taskId];
+
+                const newColumns = { ...data.columns };
+                for (const columnId in newColumns) {
+                  newColumns[columnId].taskIds = newColumns[
+                    columnId
+                  ].taskIds.filter((id) => id !== taskId);
+                }
+
+                setData({
+                  ...data,
+                  tasks: newTasks,
+                  columns: newColumns,
+                });
+              }}
             />
           );
         })}

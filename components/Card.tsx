@@ -10,9 +10,10 @@ export type Task = {
 type CardProps = {
   task: Task;
   index: number;
+  onDelete: (taskId: string) => void;
 };
 
-const Card: React.FC<CardProps> = ({ task, index }) => {
+const Card: React.FC<CardProps> = ({ task, index, onDelete }) => {
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided) => (
@@ -30,7 +31,27 @@ const Card: React.FC<CardProps> = ({ task, index }) => {
             ...provided.draggableProps.style,
           }}
         >
-          {task.content}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <span>{task.content}</span>
+            <button
+              onClick={() => onDelete(task.id)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+                color: "red",
+              }}
+            >
+              X
+            </button>
+          </div>
         </div>
       )}
     </Draggable>
